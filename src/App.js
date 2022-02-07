@@ -13,12 +13,12 @@ const appStyle = css`
   height: 100vh;
   width: 100vw;
   background-image: linear-gradient(
-    to right top,
-    #051937,
-    #004d7a,
-    #008793,
-    #00bf72,
-    #a8eb12
+    to top,
+    #ff8400,
+    #ff383a,
+    #ff006f,
+    #e000ae,
+    #6a00eb
   );
   h1,
   h2,
