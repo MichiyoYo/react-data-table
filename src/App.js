@@ -1,8 +1,31 @@
 import "./App.css";
 import React, { useState, useEffect, createContext } from "react";
 import Table from "./Components/Table";
+import { css } from "@emotion/css";
 
 export const AppContext = createContext();
+
+const appStyle = css`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100vw;
+  background-image: linear-gradient(
+    to right top,
+    #051937,
+    #004d7a,
+    #008793,
+    #00bf72,
+    #a8eb12
+  );
+  h1,
+  h2,
+  p {
+    color: #fff;
+  }
+`;
 
 function App() {
   const [users, setUsers] = useState([]);
@@ -29,7 +52,7 @@ function App() {
 
   return (
     <AppContext.Provider value={users}>
-      <div className="App">
+      <div className={appStyle}>
         <h1>User Data</h1>
         {error || loading || <Table />}
       </div>
