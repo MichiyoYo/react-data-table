@@ -6,8 +6,7 @@ function Table(props) {
   const { users } = useContext(AppContext);
 
   return (
-    <table className="Table">
-      <Row header={true} />
+    <table>
       {users.map((user) => (
         <Row key={user.id} user={user} />
       ))}

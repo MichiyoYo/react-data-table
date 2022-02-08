@@ -1,19 +1,17 @@
 import React from "react";
-import Cell from "./Cell";
 
-function Row({ user, header }) {
-  return header ? (
-    <thead>
-      <tr>
-        <tr>Header</tr>
-      </tr>
-    </thead>
-  ) : (
-    <tbody>
-      <tr>
-        <Cell user={user} />
-      </tr>
-    </tbody>
+function Row({ user }) {
+  const fields = Object.values(user);
+  return (
+    <tr>
+      {fields.map((field, i) => {
+        if (typeof field !== "object") {
+          return <td key={i}>{field}</td>;
+        } else {
+          return <td key={i}>{Object.values(field)[0]}</td>;
+        }
+      })}
+    </tr>
   );
 }
 

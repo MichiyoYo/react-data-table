@@ -34,29 +34,26 @@ function App() {
   const [error, setError] = useState("");
 
   useEffect(() => {
-    let mounted = true;
     fetch("https://jsonplaceholder.typicode.com/users")
       .then((response) => {
         if (response.ok) return response.json();
         throw response;
       })
       .then((data) => {
-        if (mounted) setUsers(data);
+        setUsers(data);
+        setLoading(false);
       })
       .catch((err) => {
         console.error(`An error occurred while retrieving data: ${err}`);
         setError("An error occurred 😿");
-      })
-      .finally(() => {
-        setLoading(false);
       });
-    return () => (mounted = false);
   }, []);
+
   return (
     <AppContext.Provider value={{ users }}>
       <div className={appStyle}>
         <h1>User Data</h1>
-        {(error && <h3>{error}</h3>) || (loading && <h3>Loading</h3>) || (
+        {(error && <h3>{error}</h3>) || (loading && <h3>Loading ⌛</h3>) || (
           <Table />
         )}
       </div>
