@@ -3,11 +3,17 @@ import Cell from "./Cell";
 
 function Row({ user, header }) {
   return header ? (
-    <th>header</th>
+    <thead>
+      <tr>
+        <tr>Header</tr>
+      </tr>
+    </thead>
   ) : (
-    <tr>
-      <Cell user={user} />
-    </tr>
+    <tbody>
+      <tr>
+        <Cell user={user} />
+      </tr>
+    </tbody>
   );
 }
 
