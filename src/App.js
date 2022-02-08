@@ -26,6 +26,9 @@ const appStyle = css`
   p {
     color: #fff;
   }
+  h1 {
+    margin-bottom: 40px;
+  }
 `;
 
 function App() {
